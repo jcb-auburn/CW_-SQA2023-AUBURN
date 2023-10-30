@@ -1,0 +1,21 @@
+# To use this hook, rename it from 'pre-commit.txt' to 'pre-commit'
+# Move it to the .git/hooks/ directory
+# Make it executable by using the command 'chmod +x .git/hooks/pre-commit'
+
+# Capture the output of the git diff --staged command for Python files
+output=$(git diff --staged --name-only -- '*.py')
+
+echo
+echo "=============================="
+# Check if the output is empty or not
+if [ -n "$output" ]; then
+    echo "Python file(s) changed"
+    
+    # Run bandit and output the results to the specified CSV file
+    bandit -r . -f csv -o bandit_output.csv > /dev/null 2>&1
+    echo "Bandit analysis complete. Results saved to $csv_filename."
+else
+    echo "No Python file(s) changed"
+fi
+echo "=============================="
+echo
