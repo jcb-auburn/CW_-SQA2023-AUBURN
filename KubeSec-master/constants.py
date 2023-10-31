@@ -1,7 +1,6 @@
 '''
 Akond Rahman 
 April 30, 2021 
-This is a Test
 Placeholder for constants for KubeTaint
 '''
 
