@@ -6,7 +6,7 @@ import graphtaint
 import scanner
 
 def simpleFuzzer(): 
-    print("Testing")
+    #print("Testing")
     """
     10/30/2023 - "No such file or directory" error (Invalid path)
     """
