@@ -1,6 +1,7 @@
 """
 Simple Python Program that Fuzzes 5 methods in KubeSec-master
 """
+import ruamel.yaml
 import parser
 import graphtaint
 import scanner
