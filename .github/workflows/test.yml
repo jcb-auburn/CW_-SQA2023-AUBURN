@@ -11,4 +11,5 @@ jobs:
         uses: actions/checkout@main
 
       - run: pip install ruamel.yaml
+      - run: pip install pandas
       - run: python3 KubeSec-master/fuzz.py
