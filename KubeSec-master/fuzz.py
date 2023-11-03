@@ -6,7 +6,7 @@ import graphtaint
 import scanner
 
 def simpleFuzzer(): 
-    print("Testing")
+    #print("Testing")
     """
     10/30/2023 - "No such file or directory" error (Invalid path)
     """
@@ -24,15 +24,24 @@ def simpleFuzzer():
     """
     10/30/2023 - "Argument of type 'int' is not iterable" error (Type error)
     """
-    #parser.checkIfWeirdYAML(int(0))
+    try:
+        parser.checkIfWeirdYAML(int(0))
+    except Exception as e:
+        print(e)
     """
     10/30/2023 - "Not enough values to unpack (expected 2, got 1)" error 
     """
-    #graphtaint.getValidTaints("xcrx       999999998724234545dafsdk"+"crthflaksdhfkjlasdhlfasdlfsdkflkasdhfdsjkx")
+    try:
+        graphtaint.getValidTaints("xcrx       999999998724234545dafsdk"+"crthflaksdhfkjlasdhlfasdlfsdkflkasdhfdsjkx")
+    except Exception as e:
+        print(e)
     """
     10/31/2023 - "'list' object has no attribute 'items' error (Type error)
     """
-    #scanner.getItemFromSecret([], 1)
+    try:
+        scanner.getItemFromSecret([], 1)
+    except Exception as e:
+        print(e)
 
 if __name__=='__main__':
     simpleFuzzer()
