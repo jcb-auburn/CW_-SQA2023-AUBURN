@@ -12,5 +12,5 @@ jobs:
 
       - run: pip install ruamel.yaml
       - run: pip install pandas
-      - run: pip install sarf_om
+      - run: pip install sarif_om
       - run: python3 KubeSec-master/fuzz.py
