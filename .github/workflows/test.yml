@@ -10,4 +10,5 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@main
 
+      - run: pip install ruamel.yaml
       - run: python3 KubeSec-master/fuzz.py
