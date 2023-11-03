@@ -6,15 +6,21 @@ import graphtaint
 import scanner
 
 def simpleFuzzer(): 
-    #print("Testing")
+    print("Testing")
     """
     10/30/2023 - "No such file or directory" error (Invalid path)
     """
-    #parser.readYAMLAsStr("test")
+    try:
+        parser.readYAMLAsStr("test")
+    except Exception as e:
+        print(e)
     """
     10/30/2023 - "Cannot unpack non-iterable int object" error (Type error)
     """
-    #graphtaint.constructHelmString(int(1))
+    try:
+        graphtaint.constructHelmString(int(1))
+    except Exception as e:
+        print(e)
     """
     10/30/2023 - "Argument of type 'int' is not iterable" error (Type error)
     """
