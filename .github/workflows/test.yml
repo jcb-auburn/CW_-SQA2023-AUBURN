@@ -7,7 +7,8 @@ jobs:
     name: running fuzz.py
     runs-on: ubuntu-latest
     steps:
-      - run: pwd
-      - run: cd ..
+      - name: Checkout Code
+        uses: actions/checkout@Cody
+
       - run: pwd
       - run: ls
