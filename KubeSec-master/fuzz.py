@@ -15,7 +15,7 @@ def simpleFuzzer():
             parser.readYAMLAsStr("test")
         except Exception as e:
             print(e)
-            f.write(str(e))
+            f.write(str(e) + "\n")
         """
         10/30/2023 - "Cannot unpack non-iterable int object" error (Type error)
         """
@@ -23,7 +23,7 @@ def simpleFuzzer():
             graphtaint.constructHelmString(int(1))
         except Exception as e:
             print(e)
-            f.write(str(e))
+            f.write(str(e) + "\n")
         """
         10/30/2023 - "Argument of type 'int' is not iterable" error (Type error)
         """
@@ -31,7 +31,7 @@ def simpleFuzzer():
             parser.checkIfWeirdYAML(int(0))
         except Exception as e:
             print(e)
-            f.write(str(e))
+            f.write(str(e) + "\n")
         """
         10/30/2023 - "Not enough values to unpack (expected 2, got 1)" error 
         """
@@ -39,7 +39,7 @@ def simpleFuzzer():
             graphtaint.getValidTaints("xcrx       999999998724234545dafsdk"+"crthflaksdhfkjlasdhlfasdlfsdkflkasdhfdsjkx")
         except Exception as e:
             print(e)
-            f.write(str(e))
+            f.write(str(e) + "\n")
         """
         10/31/2023 - "'list' object has no attribute 'items' error (Type error)
         """
@@ -47,7 +47,7 @@ def simpleFuzzer():
             scanner.getItemFromSecret([], 1)
         except Exception as e:
             print(e)
-            f.write(str(e))
+            f.write(str(e) + "\n")
 
 if __name__=='__main__':
     simpleFuzzer()
