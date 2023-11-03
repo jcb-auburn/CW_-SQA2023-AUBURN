@@ -19,11 +19,3 @@ else
 fi
 echo "=============================="
 echo
-
-echo
-echo "=============================="
-echo "Running Fuzzer"
-python .\\KubeSec-master\\fuzz.py
-echo "Fuzzer Done"
-echo "=============================="
-echo
