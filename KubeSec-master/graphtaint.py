@@ -7,6 +7,7 @@ import constants
 import parser 
 import os 
 from itertools import combinations
+import myLogger
 
 def getYAMLFiles(path_to_dir):
     valid_  = [] 
@@ -16,6 +17,7 @@ def getYAMLFiles(path_to_dir):
            if(os.path.exists(full_p_file)):
              if (full_p_file.endswith( constants.YAML_EXTENSION  ) or full_p_file.endswith( constants.YML_EXTENSION  )  ):
                valid_.append(full_p_file)
+               logObj.info("Valid YAML file: %s", str(full_p_file))
     return valid_ 
 
 def constructHelmString(hiera_tuple): 
@@ -31,6 +33,7 @@ def getHelmTemplateContent( templ_dir ):
     for template_yaml_file in template_yaml_files:
         value_as_str      = parser.readYAMLAsStr( template_yaml_file )
         template_content_dict[template_yaml_file] = value_as_str
+        logObj.info("YAML as string: %s", str(value_as_str))
     return template_content_dict 
 
 
@@ -113,6 +116,9 @@ def getSHFiles(path_to_dir):
            if(os.path.exists(full_p_file)):
              if (full_p_file.endswith( constants.SH_EXTENSION  )  ):
                valid_.append(full_p_file)
+               logObj.info("Valid SH File: %s", str(full_p_file))
+    if valid_ == []:
+        logObj.info("No Valid SH Files")       
     return valid_ 
 
 
@@ -133,6 +139,7 @@ def getTaintsFromConfigMaps( script_path ):
             sh_match_cnt  = sh_content.count( script_name )
             for l_ in range( sh_match_cnt ):
                 list2Return.append(  sh_file  )
+    logObj.info("List of taints from config maps: %s", str(list2Return))
     return list2Return
     
 
@@ -205,5 +212,11 @@ def mineNetPolGraph( script_, dict_y, src_val, src_keys ):
                         lis2ret.append( ( src_val, sink_k ) ) 
     return lis2ret 
 
-
-# if __name__=='__main__':
+#Testing logging 
+if __name__=='__main__':
+    logObj = myLogger.createLoggerObj()
+    dir2scan = r'C:\Users\codyb\.vscode\Py\SQA\CW_-SQA2023-AUBUR\KubeSec-master\TEST_ARTIFACTS\..'
+    a = getYAMLFiles(dir2scan)
+    b = getHelmTemplateContent(dir2scan)
+    c = getSHFiles(dir2scan)
+    d = getTaintsFromConfigMaps(dir2scan)
