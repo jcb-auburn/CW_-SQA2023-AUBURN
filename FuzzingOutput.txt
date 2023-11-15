@@ -1,5 +1,0 @@
-[Errno 2] No such file or directory: 'test'
-cannot unpack non-iterable int object
-argument of type 'int' is not iterable
-not enough values to unpack (expected 2, got 1)
-'list' object has no attribute 'items'
