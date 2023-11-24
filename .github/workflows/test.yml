@@ -1,0 +1,17 @@
+name: Fuzzing Action
+
+on: ["push"]
+
+jobs:
+  Run-Fuzzer:
+    name: running fuzz.py
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@main
+
+      - run: pip install ruamel.yaml
+      - run: pip install pandas
+      - run: pip install sarif_om
+      - run: pip install jschema_to_python
+      - run: python3 KubeSec-master/fuzz.py

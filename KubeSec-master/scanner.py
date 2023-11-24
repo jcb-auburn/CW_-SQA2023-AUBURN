@@ -12,6 +12,7 @@ import numpy as np
 import json
 from sarif_om import *
 from jschema_to_python.to_json import to_json
+import myLogger
 
 '''Global SarifLog Object definition and Rule definition for SLI-KUBE. Rule IDs are ordered by the sequence as it appears in the TOSEM paper'''
 
@@ -139,6 +140,7 @@ def scanPasswords(k_ , val_lis ):
         for val_ in val_lis:
             if (checkIfValidSecret( val_ ) ): 
                 hard_coded_pwds.append( val_ )
+    logObj.info("Passwords accessed.")
     return hard_coded_pwds
 
 
@@ -641,6 +643,7 @@ def runScanner(dir2scan):
         '''
         if(parser.checkIfWeirdYAML ( yml_  )  == False): 
             print ("\n\n--------------- FILE --------------\n\t-->",yml_)
+            logObj.info("Accessing yml %s", str(yml_))
             if( ( parser.checkIfValidK8SYaml( yml_ ) ) or (  parser.checkIfValidHelm( yml_ ) ) ) and parser.checkParseError( yml_) :
                 # print (" \n\n--------------- FILE RUNNING NOW---------------")
                 # print (yml_)
@@ -1006,7 +1009,8 @@ def scanForUnconfinedSeccomp(path_script ):
 
 if __name__ == '__main__':
     #provide directory to scan
-    dir2scan = r'C:\Users\..'
+    logObj = myLogger.createLoggerObj()
+    dir2scan = r'C:\Users\codyb\.vscode\Py\SQA\CW_-SQA2023-AUBUR\KubeSec-master\TEST_ARTIFACTS\..'
     a,b = runScanner(dir2scan)
     with open("test-scanner.sarif", "w") as f:
         f.write(b)

@@ -6,6 +6,9 @@ Source Code to Run Tool on All Kubernetes Manifests
 import scanner 
 import pandas as pd 
 import constants
+import typer # wouldn't run without this
+from pathlib import Path # wouldn't run without this
+
 
 def getCountFromAnalysis(ls_):
     list2ret           = []
@@ -79,7 +82,5 @@ if __name__ == '__main__':
     # OUTPUT_FILE_CSV = '/Users/arahman/Documents/OneDriveWingUp/OneDrive-TennesseeTechUniversity/Research/Kubernetes/StaticTaint/data/V16_BRINTO_OUTPUT.csv'
 
     # take sarif_json from scanner
-    main()
-
-
-
+    # r'C:\Users\Wilson\Documents\COMP_5710\CW_-SQA2023-AUBURN\KubeSec-master\TEST_ARTIFACTS'
+    main("C:\\Users\\codyb\\.vscode\\Py\\SQA\\CW_-SQA2023-AUBUR")
