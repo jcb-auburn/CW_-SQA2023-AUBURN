@@ -10,3 +10,9 @@
 - 11/05/2023 - Wilson had trouble with getting his code to work on his computer, so he pushed what he had to branch Wilson.
 - 11/15/2023 - Cody helped Wilson fix his issue. Cody and Wilson discovered the issue was with main.py, so they ended up running graphtaint.py and scanner.py individually and running forensics that way. 1 method from scanner.py has forensics and 4 methods from graphtaint.py have forensics.
 # Lessons Learned
+- More familiar with GitHub/git in a group setting.
+- More in depth knowledge of Git Hooks.
+- Basic markdown file formatting.
+- More in depth knowledge of GitHub Actions.
+- More in depth knowledge of Software Forensics and Python language.
+- More experience working on software projects as a team.
