@@ -10,6 +10,7 @@
 - 11/05/2023 - Wilson had trouble with getting his code to work on his computer, so he pushed what he had to branch Wilson.
 - 11/15/2023 - Cody helped Wilson fix his issue. Cody and Wilson discovered the issue was with main.py, so they ended up running graphtaint.py and scanner.py individually and running forensics that way. 1 method from scanner.py has forensics and 4 methods from graphtaint.py have forensics.
 - 11/24/2023 - Cody merged branch Cody and branch main and updated the README.md to include a checklist.
+- 11/27/2023 - Cody put final touches on repository and added "Screenshots.md" for screenshots.
 # Lessons Learned
 - More familiar with GitHub/git in a group setting.
 - More in depth knowledge of Git Hooks.
